@@ -52,7 +52,7 @@ Broccoli - https://www.flaticon.com/premium-icon/broccoli_2347045
 Caulliflower - https://www.flaticon.com/free-icon/cauliflower_3768378
 White Onions - https://www.flaticon.com/free-icon/onion_5346151
 Red onions - https://www.flaticon.com/free-icon/onion_5346247
-Spring onions - https://www.flaticon.com/premium-icon/spring-onion_5268977
+Spring onions - https://www.flaticon.com/premium-icon/spring-onion_4057365
 Potato - https://www.flaticon.com/premium-icon/potato_2333938
 Sweet potato - https://www.flaticon.com/free-icon/sweet-potato_5346116
 New potato - https://www.flaticon.com/free-icon/potatoes_5346520
@@ -74,3 +74,8 @@ Pumpkin - https://www.flaticon.com/premium-icon/pumpkin_381054
 Radish - https://www.flaticon.com/free-icon/radish_540254
 Parsnip - https://www.flaticon.com/free-icon/parsnip_6108568
 Spinach - https://www.flaticon.com/free-icon/spinach_3523477
+Cabbage - https://www.flaticon.com/premium-icon/cabbage_859380
+Red cabbage - https://www.flaticon.com/premium-icon/red-cabbage_3944192
+Cucumber - https://www.flaticon.com/premium-icon/cucumber_5582651
+Courgette - https://www.flaticon.com/premium-icon/courgette_895192
+Wild Garlic - https://www.flaticon.com/free-icon/garlic_765550

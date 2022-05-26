@@ -32,18 +32,6 @@ export default {
       icon: {
         type: String
       }
-  },
-  data() {
-    return {
-      category: null
-    }
-  },
-  methods: {
-    setCategory(category) {
-      this.category = category;
-    }
-  },
-  computed: {
   }
 }
 </script>
