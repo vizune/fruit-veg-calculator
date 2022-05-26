@@ -1,7 +1,7 @@
 <template>
     <div 
     v-if="feed"
-    class="grid md:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+    class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
         <div 
             v-for="(item, index) in feed" 
             :key="index"
@@ -9,6 +9,7 @@
                 <svg-icon  
                     :name="`${category}/${item.icon}`" 
                     :title="`${item.title} item`"
+                    class="ItemFeed-icon"
                 />
                 <p class="font-bold mt-6 text-lg text-center">{{item.title}}</p>
         </div>
@@ -30,3 +31,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.ItemFeed-icon {
+    max-width: 80%;
+}
+</style>

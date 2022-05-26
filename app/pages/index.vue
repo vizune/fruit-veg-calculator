@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex justify-center items-center container mx-auto">
+  <div class="h-full flex flex-col justify-center items-center container mx-auto">
     <div v-if="!category" class="grid grid-row-2 md:grid-rows-1 md:grid-cols-2 gap-4 md:gap-8 mx-4 md:mx-6">
       <MainButton 
         id="fruit" 
@@ -14,9 +14,15 @@
         @category-selected="setCategory" 
       />
     </div>
-    <div class="py-4 md:py-6 overflow-y-auto overflow-x-hidden h-full">
-      <ItemFeed v-if="category" :category="category" :feed="category === 'fruit' ? fruit : vegetables " />
+
+    <div v-if="category" class="py-4 md:py-6 px-4 md:px-0 overflow-y-auto overflow-x-hidden h-full">
+      <ItemFeed :category="category" :feed="category === 'fruit' ? fruit : vegetables " />
     </div>
+
+    <button v-if="category" @click="clearCategory" class="my-4 ml-4 md:ml-0 self-start border-black border-2 border-solid rounded py-2 md:py-4 px-4">
+      <svg-icon name="navigation/back" height="35px" width="35px" class="mb-2" />
+      <span>Back</span>
+    </button>
   </div>
 </template>
 
@@ -75,6 +81,7 @@ export default {
               { title: 'Cucumber', icon: 'cucumber'},
               { title: 'Garlic', icon: 'garlic'},
               { title: 'Wild Garlic', icon: 'wild_garlic'},
+              { title: 'Green beans', icon: 'green-beans'},
               { title: 'Leek', icon: 'leek'},
               { title: 'Lettuce', icon: 'lettuce'},
               { title: 'Button Mushrooms', icon: 'mushrooms_button'},
@@ -98,6 +105,9 @@ export default {
     methods: {
         setCategory(category) {
             this.category = category;
+        },
+        clearCategory() {
+          this.category = null;
         }
     },
     components: { MainButton }
