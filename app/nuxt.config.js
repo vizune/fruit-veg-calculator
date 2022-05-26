@@ -33,14 +33,17 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
+  modules: ['@nuxtjs/svg-sprite'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  svgSprite: {
+    // manipulate module options
   }
 }
