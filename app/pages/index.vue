@@ -16,7 +16,11 @@
     </div>
 
     <div v-if="category" class="py-4 md:py-6 px-4 md:px-0 overflow-y-auto overflow-x-hidden h-full">
-      <ItemFeed :category="category" :feed="category === 'fruit' ? fruit : vegetables " />
+      <ItemFeed 
+        :category="category" 
+        :feed="category === 'fruit' ? fruit : vegetables"
+        @decrease="decreaseQuantity"
+        @increase="increaseQuantity" />
     </div>
 
     <button v-if="category" @click="clearCategory" class="my-4 ml-4 md:ml-0 self-start border-black border-2 border-solid rounded py-2 md:py-4 px-4">
@@ -36,69 +40,69 @@ export default {
         return {
             category: null,
             fruit: [
-              { title: 'Apple', icon: 'apple'},
-              { title: 'Apricot', icon: 'apricot'},
-              { title: 'Avocado', icon: 'avocado'},
-              { title: 'Banana', icon: 'banana'},
-              { title: 'Blueberry', icon: 'blueberry'},
-              { title: 'Cherry', icon: 'cherry'},
-              { title: 'Coconut', icon: 'coconut'},
-              { title: 'Dates', icon: 'dates'},
-              { title: 'Dragon fruit', icon: 'dragon-fruit'},
-              { title: 'Durian', icon: 'durian'},
-              { title: 'Grapefruit', icon: 'grapefruit'},
-              { title: 'Grapes', icon: 'grapes'},
-              { title: 'Kiwi', icon: 'kiwi'},
-              { title: 'Lemon', icon: 'lemon'},
-              { title: 'Lime', icon: 'lime'},
-              { title: 'Lychee', icon: 'lychee'},
-              { title: 'Mango', icon: 'mango'},
-              { title: 'Orange', icon: 'orange'},
-              { title: 'Papaya', icon: 'papaya'},
-              { title: 'Passionfruit', icon: 'passion-fruit'},
-              { title: 'Peach', icon: 'peach'},
-              { title: 'Pear', icon: 'pear'},
-              { title: 'Pineapple', icon: 'pineapple'},
-              { title: 'Plum', icon: 'plum'},
-              { title: 'Raspberry', icon: 'raspberry'},
-              { title: 'Starfruit', icon: 'starfruit'},
-              { title: 'Strawberry', icon: 'strawberry'},
-              { title: 'Tomato', icon: 'tomato'},
-              { title: 'Watermelon', icon: 'Watermelon'},
+              { title: 'Apple', icon: 'apple', count: 0},
+              { title: 'Apricot', icon: 'apricot', count: 0},
+              { title: 'Avocado', icon: 'avocado', count: 0},
+              { title: 'Banana', icon: 'banana', count: 0},
+              { title: 'Blueberry', icon: 'blueberry', count: 0},
+              { title: 'Cherry', icon: 'cherry', count: 0},
+              { title: 'Coconut', icon: 'coconut', count: 0},
+              { title: 'Dates', icon: 'dates', count: 0},
+              { title: 'Dragon fruit', icon: 'dragon-fruit', count: 0},
+              { title: 'Durian', icon: 'durian', count: 0},
+              { title: 'Grapefruit', icon: 'grapefruit', count: 0},
+              { title: 'Grapes', icon: 'grapes', count: 0},
+              { title: 'Kiwi', icon: 'kiwi', count: 0},
+              { title: 'Lemon', icon: 'lemon', count: 0},
+              { title: 'Lime', icon: 'lime', count: 0},
+              { title: 'Lychee', icon: 'lychee', count: 0},
+              { title: 'Mango', icon: 'mango', count: 0},
+              { title: 'Orange', icon: 'orange', count: 0},
+              { title: 'Papaya', icon: 'papaya', count: 0},
+              { title: 'Passionfruit', icon: 'passion-fruit', count: 0},
+              { title: 'Peach', icon: 'peach', count: 0},
+              { title: 'Pear', icon: 'pear', count: 0},
+              { title: 'Pineapple', icon: 'pineapple', count: 0},
+              { title: 'Plum', icon: 'plum', count: 0},
+              { title: 'Raspberry', icon: 'raspberry', count: 0},
+              { title: 'Starfruit', icon: 'starfruit', count: 0},
+              { title: 'Strawberry', icon: 'strawberry', count: 0},
+              { title: 'Tomato', icon: 'tomato', count: 0},
+              { title: 'Watermelon', icon: 'Watermelon', count: 0},
             ],
             vegetables: [
-              { title: 'Asparagus', icon: 'asparagus'},
-              { title: 'Aubergine', icon: 'aubergine'},
-              { title: 'Beetroot', icon: 'beetroot'},
-              { title: 'Broccoli', icon: 'broccoli'},
-              { title: 'Butternut Squash', icon: 'squash'},
-              { title: 'Cabbage', icon: 'cabbage'},
-              { title: 'Red Cabbage', icon: 'red_cabbage'},
-              { title: 'Carrot', icon: 'carrot'},
-              { title: 'Cauliflower', icon: 'cauliflower'},
-              { title: 'Corn', icon: 'corn'},
-              { title: 'Courgette', icon: 'courgette'},
-              { title: 'Cucumber', icon: 'cucumber'},
-              { title: 'Garlic', icon: 'garlic'},
-              { title: 'Wild Garlic', icon: 'wild_garlic'},
-              { title: 'Green beans', icon: 'green-beans'},
-              { title: 'Leek', icon: 'leek'},
-              { title: 'Lettuce', icon: 'lettuce'},
-              { title: 'Button Mushrooms', icon: 'mushrooms_button'},
-              { title: 'Chestnut Mushrooms', icon: 'mushrooms_chestnut'},
-              { title: 'Shimeji (Beech) Mushrooms', icon: 'mushrooms_shimeji'},
-              { title: 'Red Onion', icon: 'onion_red'},
-              { title: 'Sping (Green) Onions', icon: 'onion_spring'},
-              { title: 'White Onion', icon: 'onion_white'},
-              { title: 'Parsnip', icon: 'parsnip'},
-              { title: 'Bell Pepper', icon: 'pepper_bell'},
-              { title: 'Potato', icon: 'potato'},
-              { title: 'New potato', icon: 'potatoes_new'},
-              { title: 'Sweet Potato', icon: 'potato_sweet'},
-              { title: 'Pumpkin', icon: 'pumpkin'},
-              { title: 'Radish', icon: 'radish'},
-              { title: 'Red Chili Pepper', icon: 'red-chili-pepper'},
-              { title: 'Spinach', icon: 'spinach'},
+              { title: 'Asparagus', icon: 'asparagus', count: 0},
+              { title: 'Aubergine', icon: 'aubergine', count: 0},
+              { title: 'Beetroot', icon: 'beetroot', count: 0},
+              { title: 'Broccoli', icon: 'broccoli', count: 0},
+              { title: 'Butternut Squash', icon: 'squash', count: 0},
+              { title: 'Cabbage', icon: 'cabbage', count: 0},
+              { title: 'Red Cabbage', icon: 'red_cabbage', count: 0},
+              { title: 'Carrot', icon: 'carrot', count: 0},
+              { title: 'Cauliflower', icon: 'cauliflower', count: 0},
+              { title: 'Corn', icon: 'corn', count: 0},
+              { title: 'Courgette', icon: 'courgette', count: 0},
+              { title: 'Cucumber', icon: 'cucumber', count: 0},
+              { title: 'Garlic', icon: 'garlic', count: 0},
+              { title: 'Wild Garlic', icon: 'wild_garlic', count: 0},
+              { title: 'Green beans', icon: 'green-beans', count: 0},
+              { title: 'Leek', icon: 'leek', count: 0},
+              { title: 'Lettuce', icon: 'lettuce', count: 0},
+              { title: 'Button Mushrooms', icon: 'mushrooms_button', count: 0},
+              { title: 'Chestnut Mushrooms', icon: 'mushrooms_chestnut', count: 0},
+              { title: 'Shimeji (Beech) Mushrooms', icon: 'mushrooms_shimeji', count: 0},
+              { title: 'Red Onion', icon: 'onion_red', count: 0},
+              { title: 'Sping (Green) Onions', icon: 'onion_spring', count: 0},
+              { title: 'White Onion', icon: 'onion_white', count: 0},
+              { title: 'Parsnip', icon: 'parsnip', count: 0},
+              { title: 'Bell Pepper', icon: 'pepper_bell', count: 0},
+              { title: 'Potato', icon: 'potato', count: 0},
+              { title: 'New potato', icon: 'potatoes_new', count: 0},
+              { title: 'Sweet Potato', icon: 'potato_sweet', count: 0},
+              { title: 'Pumpkin', icon: 'pumpkin', count: 0},
+              { title: 'Radish', icon: 'radish', count: 0},
+              { title: 'Red Chili Pepper', icon: 'red-chili-pepper', count: 0},
+              { title: 'Spinach', icon: 'spinach', count: 0},
             ]
         };
     },
@@ -108,6 +112,20 @@ export default {
         },
         clearCategory() {
           this.category = null;
+        },
+        decreaseQuantity(title) {
+          const selectedCategory = this.category === "fruit" ? this.fruit : this.vegetables;
+
+          const item = selectedCategory.find(x => x.title === title);
+
+          item.count--;
+        },
+        increaseQuantity(title) {
+          const selectedCategory = this.category === "fruit" ? this.fruit : this.vegetables;
+
+          const item = selectedCategory.find(x => x.title === title);
+
+          item.count++;
         }
     },
     components: { MainButton }
