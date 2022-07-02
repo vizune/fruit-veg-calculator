@@ -45,6 +45,8 @@ Grapefruit - https://www.flaticon.com/free-icon/grapefruit_3523482
 Dates - https://www.flaticon.com/premium-icon/date-palm_3944223
 Plum - https://www.flaticon.com/premium-icon/plum_3786283
 Avocado - https://www.flaticon.com/premium-icon/avocado_2347087
+Gooseberry - https://www.flaticon.com/premium-icon/gooseberry_3341735
+Blackberries - https://www.flaticon.com/premium-icon/blackberry_4332794
 
 Vegetables:
 
@@ -60,6 +62,8 @@ Carrots - https://www.flaticon.com/free-icon/carrot_5346081
 Garlic - https://www.flaticon.com/free-icon/garlic_5346654
 Mushroom - https://www.flaticon.com/free-icon/mushroom_7078728
 Chestnut mushroom - https://www.flaticon.com/free-icon/mushroom_6120752
+Morel mushroom - https://www.flaticon.com/free-icon/morel_6953259
+Portobello mushroom - https://www.flaticon.com/premium-icon/mushroom_2732014
 Shimeji mushroom - https://www.flaticon.com/free-icon/mushrooms_7449847
 Aubergine - https://www.flaticon.com/free-icon/eggplant_5346144
 Butternut squash - https://www.flaticon.com/free-icon/squash_5346421
@@ -80,3 +84,8 @@ Cucumber - https://www.flaticon.com/premium-icon/cucumber_5582651
 Courgette - https://www.flaticon.com/premium-icon/courgette_895192
 Wild Garlic - https://www.flaticon.com/free-icon/garlic_765550
 Green beans - https://www.flaticon.com/free-icon/green-beans_4977341
+Cress - https://www.flaticon.com/free-icon/cress_1398249
+Coriander - https://www.flaticon.com/premium-icon/coriander_4647084
+Artichoke - https://www.flaticon.com/premium-icon/artichoke_1744182
+Ginger - https://www.flaticon.com/free-icon/ginger_680969
+Pak Choi - https://www.flaticon.com/free-icon/pak-choi_7476400

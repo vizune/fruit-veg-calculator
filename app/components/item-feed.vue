@@ -3,7 +3,7 @@
     v-if="feed"
     class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
         <div 
-            v-for="(item, index) in feed" 
+            v-for="(item, index) in feed.sort((a, b) => (a.title > b.title) ? 1 : -1)" 
             :key="index"
             class="flex flex-col justify-content items-center border-black border-2 border-solid rounded px-3 md:px-4 pt-4 pb-1 md:max-w-xs md:max-h-xs">
                 <svg-icon  
