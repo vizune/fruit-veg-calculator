@@ -10,6 +10,17 @@ Chanllenge 3 - What about garlic and ginger? Should I make a herb category?
 
 
 
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#09a517">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
 Main:
 
 Fruit - https://www.flaticon.com/free-icon/fruits_1625048
@@ -62,8 +73,6 @@ Carrots - https://www.flaticon.com/free-icon/carrot_5346081
 Garlic - https://www.flaticon.com/free-icon/garlic_5346654
 Mushroom - https://www.flaticon.com/free-icon/mushroom_7078728
 Chestnut mushroom - https://www.flaticon.com/free-icon/mushroom_6120752
-Morel mushroom - https://www.flaticon.com/free-icon/morel_6953259
-Portobello mushroom - https://www.flaticon.com/premium-icon/mushroom_2732014
 Shimeji mushroom - https://www.flaticon.com/free-icon/mushrooms_7449847
 Aubergine - https://www.flaticon.com/free-icon/eggplant_5346144
 Butternut squash - https://www.flaticon.com/free-icon/squash_5346421
