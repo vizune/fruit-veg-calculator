@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import MainButton from '../components/main-button.vue';
 import ItemFeed from '../components/item-feed.vue';
 
@@ -39,82 +40,22 @@ export default {
     data() {
         return {
             category: null,
-            fruit: [
-              { title: 'Apple', icon: 'apple', count: 0},
-              { title: 'Apricot', icon: 'apricot', count: 0},
-              { title: 'Avocado', icon: 'avocado', count: 0},
-              { title: 'Banana', icon: 'banana', count: 0},
-              { title: 'Blueberry', icon: 'blueberry', count: 0},
-              { title: 'Cherry', icon: 'cherry', count: 0},
-              { title: 'Coconut', icon: 'coconut', count: 0},
-              { title: 'Dates', icon: 'dates', count: 0},
-              { title: 'Dragon fruit', icon: 'dragon-fruit', count: 0},
-              { title: 'Durian', icon: 'durian', count: 0},
-              { title: 'Grapefruit', icon: 'grapefruit', count: 0},
-              { title: 'Grapes', icon: 'grapes', count: 0},
-              { title: 'Kiwi', icon: 'kiwi', count: 0},
-              { title: 'Lemon', icon: 'lemon', count: 0},
-              { title: 'Lime', icon: 'lime', count: 0},
-              { title: 'Lychee', icon: 'lychee', count: 0},
-              { title: 'Mango', icon: 'mango', count: 0},
-              { title: 'Orange', icon: 'orange', count: 0},
-              { title: 'Papaya', icon: 'papaya', count: 0},
-              { title: 'Passionfruit', icon: 'passion-fruit', count: 0},
-              { title: 'Peach', icon: 'peach', count: 0},
-              { title: 'Pear', icon: 'pear', count: 0},
-              { title: 'Pineapple', icon: 'pineapple', count: 0},
-              { title: 'Plum', icon: 'plum', count: 0},
-              { title: 'Raspberry', icon: 'raspberry', count: 0},
-              { title: 'Starfruit', icon: 'starfruit', count: 0},
-              { title: 'Strawberry', icon: 'strawberry', count: 0},
-              { title: 'Tomato', icon: 'tomato', count: 0},
-              { title: 'Watermelon', icon: 'watermelon', count: 0},
-              { title: 'Goosberries', icon: 'gooseberry', count: 0},
-              { title: 'Blackberries', icon: 'blackberry', count: 0}
-            ],
-            vegetables: [
-              { title: 'Asparagus', icon: 'asparagus', count: 0},
-              { title: 'Aubergine', icon: 'aubergine', count: 0},
-              { title: 'Beetroot', icon: 'beetroot', count: 0},
-              { title: 'Broccoli', icon: 'broccoli', count: 0},
-              { title: 'Butternut Squash', icon: 'squash', count: 0},
-              { title: 'Cabbage', icon: 'cabbage', count: 0},
-              { title: 'Cabbage - Red', icon: 'red_cabbage', count: 0},
-              { title: 'Carrot', icon: 'carrot', count: 0},
-              { title: 'Cauliflower', icon: 'cauliflower', count: 0},
-              { title: 'Corn', icon: 'corn', count: 0},
-              { title: 'Courgette', icon: 'courgette', count: 0},
-              { title: 'Cucumber', icon: 'cucumber', count: 0},
-              { title: 'Garlic', icon: 'garlic', count: 0},
-              { title: 'Garlic - Wild', icon: 'wild_garlic', count: 0},
-              { title: 'Green beans', icon: 'green-beans', count: 0},
-              { title: 'Leek', icon: 'leek', count: 0},
-              { title: 'Lettuce', icon: 'lettuce', count: 0},
-              { title: 'Mushrooms - (Button)', icon: 'mushrooms_button', count: 0},
-              { title: 'Mushrooms - (Chestnut)', icon: 'mushrooms_chestnut', count: 0},
-              { title: 'Mushrooms - (Shimeji / Beech)', icon: 'mushrooms_shimeji', count: 0},
-              { title: 'Onion - Red', icon: 'onion_red', count: 0},
-              { title: 'Onion - Spring / Green', icon: 'onion_spring', count: 0},
-              { title: 'Onion - White', icon: 'onion_white', count: 0},
-              { title: 'Parsnip', icon: 'parsnip', count: 0},
-              { title: 'Bell Pepper', icon: 'pepper_bell', count: 0},
-              { title: 'Potato', icon: 'potato', count: 0},
-              { title: 'Potato - New', icon: 'potatoes_new', count: 0},
-              { title: 'Potato - Sweet', icon: 'potato_sweet', count: 0},
-              { title: 'Pumpkin', icon: 'pumpkin', count: 0},
-              { title: 'Radish', icon: 'radish', count: 0},
-              { title: 'Red Chili Pepper', icon: 'red-chili-pepper', count: 0},
-              { title: 'Spinach', icon: 'spinach', count: 0},
-              { title: 'Cress', icon: 'cress', count: 0},
-              { title: 'Coriander', icon: 'coriander', count: 0},
-              { title: 'Artichoke', icon: 'artichoke', count: 0},
-              { title: 'Ginger', icon: 'ginger', count: 0},
-              { title: 'Pak Choi', icon: 'pak-choi', count: 0},
-              { title: 'Mushrooms - Portobello', icon: 'mushrooms_portobello', count: 0}
-            ]
+            fruit: null,
+            vegetables: null
         };
     },
+    async beforeMount() {
+      this.fruit = await this.loadData('fruit');
+      this.vegetableas = await this.loadData('vegetables');
+    },
     methods: {
+        async loadData(category) {
+          if (process.server) {
+            return JSON.parse(require('fs').readFileSync(`../data/${category}.json`, 'utf8'))
+          } else {
+            return await axios.get(`../data/${category}.json`).then(res => res.data)
+          }
+        },
         setCategory(category) {
             this.category = category;
         },

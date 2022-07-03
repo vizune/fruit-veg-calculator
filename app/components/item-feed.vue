@@ -50,7 +50,6 @@ export default {
         required: true
       },
       feed: {
-        type: Array,
         required: true
       }
   }
